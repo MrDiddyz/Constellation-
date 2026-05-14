@@ -9,7 +9,7 @@ const envSchema = z
     NEXT_PUBLIC_APP_NAME: z.string().min(1).default("MURMUR Core"),
     SUPABASE_URL: z.string().url().optional(),
     SUPABASE_ANON_KEY: z.string().min(1).optional(),
-    INTERNAL_API_TOKEN: z.string().min(16).optional(),
+    INTERNAL_API_TOKEN: z.string().min(32).optional(),
     LOG_LEVEL: z.enum(["debug", "info", "warn", "error"]).default("info"),
   })
   .superRefine((env, ctx) => {
