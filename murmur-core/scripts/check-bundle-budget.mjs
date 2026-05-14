@@ -30,6 +30,11 @@ if (files.length === 0) {
 }
 
 const sizes = await Promise.all(files.map(async (file) => ({ file, size: (await stat(file)).size })));
+
+if (sizes.length === 0) {
+  throw new Error("No JavaScript chunk sizes could be calculated.");
+}
+
 const totalSize = sizes.reduce((sum, item) => sum + item.size, 0);
 const largestChunk = sizes.reduce((max, item) => (item.size > max.size ? item : max), sizes[0]);
 
