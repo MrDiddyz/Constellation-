@@ -5,7 +5,7 @@
 - Root `.github/workflows/` defines required CI gates.
 
 ## Local setup
-1. `cd /home/runner/work/Constellation-/Constellation-/murmur-core`
+1. `cd murmur-core`
 2. `cp .env.local.example .env.local`
 3. `npm ci`
 

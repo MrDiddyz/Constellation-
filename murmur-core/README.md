@@ -29,7 +29,7 @@ Use templates:
 
 ## Quick start
 ```bash
-cd /home/runner/work/Constellation-/Constellation-/murmur-core
+cd murmur-core
 cp .env.local.example .env.local
 npm ci
 npm run check
