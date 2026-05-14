@@ -35,8 +35,16 @@ if (sizes.length === 0) {
   throw new Error("No JavaScript chunk sizes could be calculated.");
 }
 
+const [firstChunk, ...remainingChunks] = sizes;
+if (!firstChunk) {
+  throw new Error("Could not determine largest JavaScript chunk.");
+}
+
 const totalSize = sizes.reduce((sum, item) => sum + item.size, 0);
-const largestChunk = sizes.reduce((max, item) => (item.size > max.size ? item : max), sizes[0]);
+const largestChunk = remainingChunks.reduce(
+  (max, item) => (item.size > max.size ? item : max),
+  firstChunk,
+);
 
 console.log(`Total JS size: ${totalSize} bytes (budget: ${totalBudget})`);
 console.log(
